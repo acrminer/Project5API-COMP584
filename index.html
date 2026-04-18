@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex - COMP 584 Project 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Anime.js v3.2.2 loaded from CDN; provides animation engine for card fade-in and stat bar fills -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-content">
+            <h1 class="logo">Pokedex</h1>
+        </div>
+    </header>
+
+
+    <!-- Loading indicator: shown while fetching Pokemon data, hidden when renderCards() is called -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading Pokemon...</p>
+    </div>
+
+    <!-- Pokemon cards dynamically populated by app.js -->
+    <main class="card-grid" id="card-grid"></main>
+
+    <!-- Detail modal: populated by openModal() when card is clicked -->
+    <!-- Overlay div handles backdrop clicks to close -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="">
+                <h2 id="modal-name"></h2>
+                <div id="modal-types" class="modal-types"></div>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Height</span>
+                        <span id="modal-height" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Weight</span>
+                        <span id="modal-weight" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Base Exp</span>
+                        <span id="modal-exp" class="detail-value"></span>
+                    </div>
+                </div>
+                <p class="stats-title">Base Stats</p>
+                <!-- Stat bars dynamically generated and animated by Anime.js -->
+                <div id="modal-stats" class="stats-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Data from <a href="https://pokeapi.co/" target="_blank" rel="noopener">PokeAPI</a> &mdash; COMP 584 Project 5</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
